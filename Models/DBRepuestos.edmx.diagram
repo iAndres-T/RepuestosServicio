@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4d58406990d84b0d85aaa5cc30cedb47" Name="Diagram1">
+        <EntityTypeShape EntityType="DBRepuestosModel.Cargo" Width="1.5" PointX="3.75" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.Cilindraje" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.Cliente" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.DireccionProveedor" Width="1.5" PointX="1.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.Empleado" Width="1.5" PointX="6" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.Garantia" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.Marca" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.Moto" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.Pais" Width="1.5" PointX="1.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.Proveedor" Width="1.5" PointX="3.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.Repuesto" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.Servicio" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.Tipo_Repuesto" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.Venta_Repuesto" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRepuestosModel.Venta_Servicio" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Empleado__id_car__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Moto__id_cilindr__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Garantia__id_cli__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Venta_Rep__id_cl__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Venta_Ser__id_cl__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK_Moto_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Direccion__id_pa__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Proveedor__direc__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Servicio__id_emp__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Venta_Rep__id_em__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Garantia__id_ser__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Venta_Ser__id_ga__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Moto__id_marca__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Repuesto__id_mar__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Repuesto__id_pro__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Repuesto__id_tip__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Venta_Rep__id_re__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRepuestosModel.FK__Venta_Ser__id_se__7C4F7684" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
