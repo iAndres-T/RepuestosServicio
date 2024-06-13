@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using RepuestosServicio.Clases;
 
 namespace RepuestosServicio
 {
@@ -13,6 +14,8 @@ namespace RepuestosServicio
             config.EnableCors();
             // Rutas de Web API
             config.MapHttpAttributeRoutes();
+
+            config.MessageHandlers.Add(new TokenValidationHandler());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

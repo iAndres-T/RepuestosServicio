@@ -11,7 +11,8 @@ namespace RepuestosServicio.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using Newtonsoft.Json;
+
     public partial class DireccionProveedor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,9 +24,11 @@ namespace RepuestosServicio.Models
         public string direccion { get; set; }
         public string ciudad { get; set; }
         public Nullable<int> id_pais { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Pais Pais { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Proveedor> Proveedor { get; set; }
     }
 }

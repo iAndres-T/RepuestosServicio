@@ -32,6 +32,26 @@
     <Property Name="ultima_compra" Type="date" />
     <Property Name="tipo_persona" Type="varchar" MaxLength="10" />
   </EntityType>
+  <EntityType Name="DetalleServicio">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" Nullable="false" />
+    <Property Name="id_servicio" Type="int" Nullable="false" />
+    <Property Name="id_venta" Type="int" Nullable="false" />
+    <Property Name="valor" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="duracion" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetalleVenta">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" Nullable="false" />
+    <Property Name="id_venta" Type="int" Nullable="false" />
+    <Property Name="id_repuesto" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="valor_unitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
   <EntityType Name="DireccionProveedor">
     <Key>
       <PropertyRef Name="direccion" />
@@ -64,9 +84,7 @@
     <Property Name="id" Type="int" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="255" />
     <Property Name="duracion" Type="varchar" MaxLength="50" />
-    <Property Name="estado" Type="bit" />
     <Property Name="id_cliente" Type="varchar" MaxLength="10" />
-    <Property Name="id_servicio" Type="int" />
   </EntityType>
   <EntityType Name="Marca">
     <Key>
@@ -125,9 +143,9 @@
     </Key>
     <Property Name="id" Type="int" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="200" />
+    <Property Name="id_empleado" Type="varchar" MaxLength="10" />
     <Property Name="valor" Type="decimal" Precision="10" Scale="2" />
     <Property Name="duracion" Type="varchar" MaxLength="20" />
-    <Property Name="id_empleado" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -146,19 +164,26 @@
     <Property Name="id" Type="int" Nullable="false" />
     <Property Name="categoria" Type="varchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id_empleado" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="user_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="clave" Type="nvarchar" MaxLength="2000" Nullable="false" />
+    <Property Name="salt" Type="nvarchar" MaxLength="2000" Nullable="false" />
+  </EntityType>
   <EntityType Name="Venta_Repuesto">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="valor_unitario" Type="decimal" Precision="10" Scale="2" />
-    <Property Name="cantidad" Type="int" />
-    <Property Name="valor_total" Type="decimal" Precision="10" Scale="2" />
     <Property Name="id_cliente" Type="varchar" MaxLength="10" />
-    <Property Name="id_repuesto" Type="int" />
     <Property Name="id_empleado" Type="varchar" MaxLength="10" />
     <Property Name="fecha_venta" Type="date" />
     <Property Name="metodo_pago" Type="varchar" MaxLength="15" />
+    <Property Name="total" Type="decimal" Precision="10" Scale="2" />
   </EntityType>
   <EntityType Name="Venta_Servicio">
     <Key>
@@ -168,8 +193,8 @@
     <Property Name="fecha_venta" Type="date" />
     <Property Name="id_cliente" Type="varchar" MaxLength="10" />
     <Property Name="metodo_pago" Type="varchar" MaxLength="15" />
-    <Property Name="id_servicio" Type="int" />
     <Property Name="id_garantia" Type="int" />
+    <Property Name="total" Type="decimal" Precision="10" Scale="2" />
   </EntityType>
   <Association Name="FK__Direccion__id_pa__4D94879B">
     <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
@@ -204,18 +229,6 @@
       </Principal>
       <Dependent Role="Garantia">
         <PropertyRef Name="id_cliente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Garantia__id_ser__787EE5A0">
-    <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
-    <End Role="Garantia" Type="Self.Garantia" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Servicio">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Garantia">
-        <PropertyRef Name="id_servicio" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -327,18 +340,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Venta_Rep__id_re__70DDC3D8">
-    <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="0..1" />
-    <End Role="Venta_Repuesto" Type="Self.Venta_Repuesto" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Repuesto">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Venta_Repuesto">
-        <PropertyRef Name="id_repuesto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Venta_Ser__id_cl__7B5B524B">
     <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
     <End Role="Venta_Servicio" Type="Self.Venta_Servicio" Multiplicity="*" />
@@ -363,15 +364,51 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Venta_Ser__id_se__7C4F7684">
-    <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
-    <End Role="Venta_Servicio" Type="Self.Venta_Servicio" Multiplicity="*" />
+  <Association Name="FK_DetalleServicio_Servicio">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
+    <End Role="DetalleServicio" Type="Self.DetalleServicio" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Servicio">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="Venta_Servicio">
+      <Dependent Role="DetalleServicio">
         <PropertyRef Name="id_servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleServicio_Venta_Servicio">
+    <End Role="Venta_Servicio" Type="Self.Venta_Servicio" Multiplicity="1" />
+    <End Role="DetalleServicio" Type="Self.DetalleServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venta_Servicio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleServicio">
+        <PropertyRef Name="id_venta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleVenta_Repuesto">
+    <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="1" />
+    <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Repuesto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleVenta">
+        <PropertyRef Name="id_repuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleVenta_VentaRepuesto">
+    <End Role="Venta_Repuesto" Type="Self.Venta_Repuesto" Multiplicity="1" />
+    <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venta_Repuesto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleVenta">
+        <PropertyRef Name="id_venta" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -384,6 +421,18 @@
       </Principal>
       <Dependent Role="Moto">
         <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Empleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="documento" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_empleado" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -422,6 +471,8 @@
     <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cilindraje" EntityType="Self.Cilindraje" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetalleServicio" EntityType="Self.DetalleServicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DireccionProveedor" EntityType="Self.DireccionProveedor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Garantia" EntityType="Self.Garantia" Schema="dbo" store:Type="Tables" />
@@ -433,6 +484,7 @@
     <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Repuesto" EntityType="Self.Tipo_Repuesto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Venta_Repuesto" EntityType="Self.Venta_Repuesto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Venta_Servicio" EntityType="Self.Venta_Servicio" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Direccion__id_pa__4D94879B" Association="Self.FK__Direccion__id_pa__4D94879B">
@@ -445,10 +497,6 @@
     </AssociationSet>
     <AssociationSet Name="FK__Garantia__id_cli__778AC167" Association="Self.FK__Garantia__id_cli__778AC167">
       <End Role="Cliente" EntitySet="Cliente" />
-      <End Role="Garantia" EntitySet="Garantia" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Garantia__id_ser__787EE5A0" Association="Self.FK__Garantia__id_ser__787EE5A0">
-      <End Role="Servicio" EntitySet="Servicio" />
       <End Role="Garantia" EntitySet="Garantia" />
     </AssociationSet>
     <AssociationSet Name="FK__Moto__id_cilindr__5DCAEF64" Association="Self.FK__Moto__id_cilindr__5DCAEF64">
@@ -487,10 +535,6 @@
       <End Role="Empleado" EntitySet="Empleado" />
       <End Role="Venta_Repuesto" EntitySet="Venta_Repuesto" />
     </AssociationSet>
-    <AssociationSet Name="FK__Venta_Rep__id_re__70DDC3D8" Association="Self.FK__Venta_Rep__id_re__70DDC3D8">
-      <End Role="Repuesto" EntitySet="Repuesto" />
-      <End Role="Venta_Repuesto" EntitySet="Venta_Repuesto" />
-    </AssociationSet>
     <AssociationSet Name="FK__Venta_Ser__id_cl__7B5B524B" Association="Self.FK__Venta_Ser__id_cl__7B5B524B">
       <End Role="Cliente" EntitySet="Cliente" />
       <End Role="Venta_Servicio" EntitySet="Venta_Servicio" />
@@ -499,13 +543,29 @@
       <End Role="Garantia" EntitySet="Garantia" />
       <End Role="Venta_Servicio" EntitySet="Venta_Servicio" />
     </AssociationSet>
-    <AssociationSet Name="FK__Venta_Ser__id_se__7C4F7684" Association="Self.FK__Venta_Ser__id_se__7C4F7684">
+    <AssociationSet Name="FK_DetalleServicio_Servicio" Association="Self.FK_DetalleServicio_Servicio">
       <End Role="Servicio" EntitySet="Servicio" />
+      <End Role="DetalleServicio" EntitySet="DetalleServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleServicio_Venta_Servicio" Association="Self.FK_DetalleServicio_Venta_Servicio">
       <End Role="Venta_Servicio" EntitySet="Venta_Servicio" />
+      <End Role="DetalleServicio" EntitySet="DetalleServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleVenta_Repuesto" Association="Self.FK_DetalleVenta_Repuesto">
+      <End Role="Repuesto" EntitySet="Repuesto" />
+      <End Role="DetalleVenta" EntitySet="DetalleVenta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleVenta_VentaRepuesto" Association="Self.FK_DetalleVenta_VentaRepuesto">
+      <End Role="Venta_Repuesto" EntitySet="Venta_Repuesto" />
+      <End Role="DetalleVenta" EntitySet="DetalleVenta" />
     </AssociationSet>
     <AssociationSet Name="FK_Moto_Cliente" Association="Self.FK_Moto_Cliente">
       <End Role="Cliente" EntitySet="Cliente" />
       <End Role="Moto" EntitySet="Moto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Empleado" Association="Self.FK_Usuario_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Usuario" EntitySet="Usuario" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

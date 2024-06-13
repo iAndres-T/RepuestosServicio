@@ -11,6 +11,8 @@ using System.Web.Http.Cors;
 namespace EmpleadosServicio.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [RoutePrefix("api/Empleado")]
+    [Authorize]
     public class EmpleadoController : ApiController
     {
         public IQueryable Get()
@@ -24,6 +26,14 @@ namespace EmpleadosServicio.Controllers
         {
             clsEmpleado _empleado = new clsEmpleado();
             return _empleado.Consultar(id);
+        }
+
+        [HttpGet]
+        [Route("ConsultarConCargo")]
+        public IQueryable ConsultarConCargo(string id)
+        {
+            clsEmpleado _empleado = new clsEmpleado();
+            return _empleado.ConsultarConCargo(id);
         }
 
         // POST api/<controller>

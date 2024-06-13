@@ -11,7 +11,8 @@ namespace RepuestosServicio.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using Newtonsoft.Json;
+
     public partial class Moto
     {
         public string linea { get; set; }
@@ -20,9 +21,12 @@ namespace RepuestosServicio.Models
         public Nullable<int> id_cilindraje { get; set; }
         public string placa { get; set; }
         public string id_cliente { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Cilindraje Cilindraje { get; set; }
+        [JsonIgnore]
         public virtual Cliente Cliente { get; set; }
+        [JsonIgnore]
         public virtual Marca Marca { get; set; }
     }
 }

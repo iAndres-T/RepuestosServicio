@@ -82,6 +82,17 @@ namespace RepuestosServicio.Clases
             return consulta;
         }
 
+        public IQueryable LlenarCombo(int idTipoRepuesto)
+        {
+            return from R in dBRepuestos.Set<Repuesto>()
+                   where R.id_tipo_repuesto == idTipoRepuesto
+                   select new
+                   {
+                       Codigo = R.id + "|" + R.precio,
+                       Nombre = R.nombre
+                   };
+        }
+
         public string Eliminar()
         {
             try
@@ -91,7 +102,7 @@ namespace RepuestosServicio.Clases
                 dBRepuestos.SaveChanges();
                 return "Se eliminó el repuesto: " + repuesto.nombre;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 return ex.Message;
             }

@@ -11,21 +11,29 @@ namespace RepuestosServicio.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using Newtonsoft.Json;
+
     public partial class Venta_Repuesto
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Venta_Repuesto()
+        {
+            this.DetalleVenta = new HashSet<DetalleVenta>();
+        }
+    
         public int id { get; set; }
-        public Nullable<decimal> valor_unitario { get; set; }
-        public Nullable<int> cantidad { get; set; }
-        public Nullable<decimal> valor_total { get; set; }
         public string id_cliente { get; set; }
-        public Nullable<int> id_repuesto { get; set; }
         public string id_empleado { get; set; }
         public Nullable<System.DateTime> fecha_venta { get; set; }
         public string metodo_pago { get; set; }
-    
+        public Nullable<decimal> total { get; set; }
+
+        [JsonIgnore]
         public virtual Cliente Cliente { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
+        public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
+        [JsonIgnore]
         public virtual Empleado Empleado { get; set; }
-        public virtual Repuesto Repuesto { get; set; }
     }
 }

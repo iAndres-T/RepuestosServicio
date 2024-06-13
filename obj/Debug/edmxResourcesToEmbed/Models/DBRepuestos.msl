@@ -63,18 +63,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Garantia">
-      <EntityTypeMapping TypeName="DBRepuestosModel.Garantia">
-        <MappingFragment StoreEntitySet="Garantia">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="duracion" ColumnName="duracion" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Marca">
       <EntityTypeMapping TypeName="DBRepuestosModel.Marca">
         <MappingFragment StoreEntitySet="Marca">
@@ -131,17 +119,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Servicio">
-      <EntityTypeMapping TypeName="DBRepuestosModel.Servicio">
-        <MappingFragment StoreEntitySet="Servicio">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="valor" ColumnName="valor" />
-          <ScalarProperty Name="duracion" ColumnName="duracion" />
-          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="DBRepuestosModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -158,33 +135,6 @@
         <MappingFragment StoreEntitySet="Tipo_Repuesto">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="categoria" ColumnName="categoria" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Venta_Repuesto">
-      <EntityTypeMapping TypeName="DBRepuestosModel.Venta_Repuesto">
-        <MappingFragment StoreEntitySet="Venta_Repuesto">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="valor_unitario" ColumnName="valor_unitario" />
-          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-          <ScalarProperty Name="valor_total" ColumnName="valor_total" />
-          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-          <ScalarProperty Name="id_repuesto" ColumnName="id_repuesto" />
-          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
-          <ScalarProperty Name="fecha_venta" ColumnName="fecha_venta" />
-          <ScalarProperty Name="metodo_pago" ColumnName="metodo_pago" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Venta_Servicio">
-      <EntityTypeMapping TypeName="DBRepuestosModel.Venta_Servicio">
-        <MappingFragment StoreEntitySet="Venta_Servicio">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="fecha_venta" ColumnName="fecha_venta" />
-          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-          <ScalarProperty Name="metodo_pago" ColumnName="metodo_pago" />
-          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
-          <ScalarProperty Name="id_garantia" ColumnName="id_garantia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -212,5 +162,83 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DBRepuestosModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DBRepuestosModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="DetalleServicio">
+      <EntityTypeMapping TypeName="DBRepuestosModel.DetalleServicio">
+        <MappingFragment StoreEntitySet="DetalleServicio">
+          <ScalarProperty Name="duracion" ColumnName="duracion" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="id_venta" ColumnName="id_venta" />
+          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleVenta">
+      <EntityTypeMapping TypeName="DBRepuestosModel.DetalleVenta">
+        <MappingFragment StoreEntitySet="DetalleVenta">
+          <ScalarProperty Name="valor_unitario" ColumnName="valor_unitario" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="id_repuesto" ColumnName="id_repuesto" />
+          <ScalarProperty Name="id_venta" ColumnName="id_venta" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="DBRepuestosModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="salt" ColumnName="salt" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Garantia">
+      <EntityTypeMapping TypeName="DBRepuestosModel.Garantia">
+        <MappingFragment StoreEntitySet="Garantia">
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="duracion" ColumnName="duracion" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servicio">
+      <EntityTypeMapping TypeName="DBRepuestosModel.Servicio">
+        <MappingFragment StoreEntitySet="Servicio">
+          <ScalarProperty Name="duracion" ColumnName="duracion" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Venta_Repuesto">
+      <EntityTypeMapping TypeName="DBRepuestosModel.Venta_Repuesto">
+        <MappingFragment StoreEntitySet="Venta_Repuesto">
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="metodo_pago" ColumnName="metodo_pago" />
+          <ScalarProperty Name="fecha_venta" ColumnName="fecha_venta" />
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Venta_Servicio">
+      <EntityTypeMapping TypeName="DBRepuestosModel.Venta_Servicio">
+        <MappingFragment StoreEntitySet="Venta_Servicio">
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="id_garantia" ColumnName="id_garantia" />
+          <ScalarProperty Name="metodo_pago" ColumnName="metodo_pago" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="fecha_venta" ColumnName="fecha_venta" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

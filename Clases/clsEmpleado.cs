@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
+using System.Xml.Linq;
 
 namespace RepuestosServicio.Clases
 {
@@ -45,6 +46,19 @@ namespace RepuestosServicio.Clases
             return dBRepuestos.Empleado.FirstOrDefault(e => e.documento == id);
         }
 
+        public IQueryable ConsultarConCargo(string id)
+        {
+            return from E in dBRepuestos.Set<Empleado>()
+                   join C in dBRepuestos.Set<Cargo>()
+                   on E.id_cargo equals C.id
+                   where E.documento == id
+                   select new
+                   {
+                       NombreEmpleado = E.nombre + " " + E.primer_apellido + " " + E.segundo_apellido,
+                       Cargo = C.nombre
+                   };
+        }
+
 
         public IQueryable ConsultarEmpleados()
         {
@@ -82,6 +96,13 @@ namespace RepuestosServicio.Clases
                               }).AsQueryable();
 
             return consulta;
+        }
+
+        public List<object> ConsultarEncargados()
+        {
+            return dBRepuestos.Empleado
+                               .Select(m => new { Codigo = m.documento, Nombre = m.nombre + "-" + m.primer_apellido + "-" + m.segundo_apellido + "(" + m.documento + ")" })
+                               .ToList<object>();
         }
 
         public string Eliminar()

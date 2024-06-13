@@ -9,16 +9,16 @@
 
 namespace RepuestosServicio.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+    using Newtonsoft.Json;
+
     public partial class Repuesto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Repuesto()
         {
-            this.Venta_Repuesto = new HashSet<Venta_Repuesto>();
+            this.DetalleVenta = new HashSet<DetalleVenta>();
         }
     
         public int id { get; set; }
@@ -41,6 +41,6 @@ namespace RepuestosServicio.Models
         public virtual Tipo_Repuesto Tipo_Repuesto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
-        public virtual ICollection<Venta_Repuesto> Venta_Repuesto { get; set; }
+        public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
     }
 }

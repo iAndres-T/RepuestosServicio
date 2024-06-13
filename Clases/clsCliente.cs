@@ -79,6 +79,13 @@ namespace RepuestosServicio
 
         }
 
+        public List<object> ConsultarPropietarios()
+        {
+            return dBRepuestos.Cliente
+                               .Select(m => new { Codigo = m.documento, Nombre = m.nombre + "-" + m.primer_apellido + "(" + m.documento + ")" })
+                               .ToList<object>();
+        }
+
         public string Eliminar()
         {
             try

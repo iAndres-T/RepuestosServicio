@@ -11,6 +11,8 @@ using System.Web.Http.Cors;
 namespace RepuestosServicio.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [RoutePrefix("api/Repuesto")]
+    [Authorize]
     public class RepuestoController : ApiController
     {
         // GET api/<controller>
@@ -25,6 +27,14 @@ namespace RepuestosServicio.Controllers
         {
             clsRepuesto _repuesto = new clsRepuesto();
             return _repuesto.Consultar(id);
+        }
+
+        [HttpGet]
+        [Route("LlenarComboXTipoRepuesto")]
+        public IQueryable LlenarComboXTipoProducto(int idTipoRepuesto)
+        {
+            clsRepuesto _repuesto = new clsRepuesto();
+            return _repuesto.LlenarCombo(idTipoRepuesto);
         }
 
         // POST api/<controller>

@@ -3,8 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|c:\\users\\usuario\\documents\\visual studio\\repuestosproyecto\\repuestosservicio\\clases\\clsrepuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|solutionrelative:clases\\clsrepuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|c:\\users\\usuario\\documents\\visual studio\\repuestosproyecto\\repuestosservicio\\clases\\clsventaservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|solutionrelative:clases\\clsventaservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\clases\\clsventarepuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|solutionrelative:clases\\clsventarepuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\clases\\clscliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|solutionrelative:clases\\clscliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\controllers\\garantiacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|solutionrelative:controllers\\garantiacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\clases\\clsgarantia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|solutionrelative:clases\\clsgarantia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\controllers\\ventaserviciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|solutionrelative:controllers\\ventaserviciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\clases\\clsservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A88CB-9FFB-4F60-8A63-838C7FFADB46}|RepuestosServicio.csproj|solutionrelative:clases\\clsservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,15 +50,87 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "clsRepuesto.cs",
-              "DocumentMoniker": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Clases\\clsRepuesto.cs",
-              "RelativeDocumentMoniker": "Clases\\clsRepuesto.cs",
-              "ToolTip": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Clases\\clsRepuesto.cs",
-              "RelativeToolTip": "Clases\\clsRepuesto.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAkwEYAAAA+AAAA",
+              "DocumentIndex": 1,
+              "Title": "clsVentaRepuesto.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Clases\\clsVentaRepuesto.cs",
+              "RelativeDocumentMoniker": "Clases\\clsVentaRepuesto.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Clases\\clsVentaRepuesto.cs",
+              "RelativeToolTip": "Clases\\clsVentaRepuesto.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAswD8AAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T20:29:25.892Z",
+              "WhenOpened": "2024-06-03T02:02:38.091Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "clsCliente.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Clases\\clsCliente.cs",
+              "RelativeDocumentMoniker": "Clases\\clsCliente.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Clases\\clsCliente.cs",
+              "RelativeToolTip": "Clases\\clsCliente.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T02:01:32.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GarantiaController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Controllers\\GarantiaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\GarantiaController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Controllers\\GarantiaController.cs",
+              "RelativeToolTip": "Controllers\\GarantiaController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T00:43:57.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "clsGarantia.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Clases\\clsGarantia.cs",
+              "RelativeDocumentMoniker": "Clases\\clsGarantia.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Clases\\clsGarantia.cs",
+              "RelativeToolTip": "Clases\\clsGarantia.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAABkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T00:34:48.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "clsServicio.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Clases\\clsServicio.cs",
+              "RelativeDocumentMoniker": "Clases\\clsServicio.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Clases\\clsServicio.cs",
+              "RelativeToolTip": "Clases\\clsServicio.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T21:29:09.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VentaServicioController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Controllers\\VentaServicioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\VentaServicioController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Controllers\\VentaServicioController.cs",
+              "RelativeToolTip": "Controllers\\VentaServicioController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T20:29:30.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "clsVentaServicio.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Clases\\clsVentaServicio.cs",
+              "RelativeDocumentMoniker": "Clases\\clsVentaServicio.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Documents\\Visual Studio\\RepuestosProyecto\\RepuestosServicio\\Clases\\clsVentaServicio.cs",
+              "RelativeToolTip": "Clases\\clsVentaServicio.cs",
+              "ViewState": "AQIAAEkAAAAAAAAAAAAwwEsAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T20:17:59.472Z",
               "EditorCaption": ""
             }
           ]

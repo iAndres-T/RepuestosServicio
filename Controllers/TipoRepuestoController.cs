@@ -10,6 +10,7 @@ using System.Web.Http.Cors;
 namespace RepuestosServicio.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [Authorize]
     public class TipoRepuestoController : ApiController
     {
         public List<object> Get()

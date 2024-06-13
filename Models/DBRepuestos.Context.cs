@@ -32,15 +32,18 @@ namespace RepuestosServicio.Models
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<DireccionProveedor> DireccionProveedor { get; set; }
         public virtual DbSet<Empleado> Empleado { get; set; }
-        public virtual DbSet<Garantia> Garantia { get; set; }
         public virtual DbSet<Marca> Marca { get; set; }
         public virtual DbSet<Moto> Moto { get; set; }
         public virtual DbSet<Pais> Pais { get; set; }
         public virtual DbSet<Proveedor> Proveedor { get; set; }
         public virtual DbSet<Repuesto> Repuesto { get; set; }
-        public virtual DbSet<Servicio> Servicio { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tipo_Repuesto> Tipo_Repuesto { get; set; }
+        public virtual DbSet<DetalleServicio> DetalleServicio { get; set; }
+        public virtual DbSet<DetalleVenta> DetalleVenta { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Garantia> Garantia { get; set; }
+        public virtual DbSet<Servicio> Servicio { get; set; }
         public virtual DbSet<Venta_Repuesto> Venta_Repuesto { get; set; }
         public virtual DbSet<Venta_Servicio> Venta_Servicio { get; set; }
     

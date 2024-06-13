@@ -9,19 +9,19 @@
 
 namespace RepuestosServicio.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+    using Newtonsoft.Json;
+
     public partial class Cliente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Cliente()
         {
+            this.Moto = new HashSet<Moto>();
             this.Garantia = new HashSet<Garantia>();
             this.Venta_Repuesto = new HashSet<Venta_Repuesto>();
             this.Venta_Servicio = new HashSet<Venta_Servicio>();
-            this.Moto = new HashSet<Moto>();
         }
     
         public string documento { get; set; }
@@ -38,6 +38,9 @@ namespace RepuestosServicio.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
+        public virtual ICollection<Moto> Moto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Garantia> Garantia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
@@ -45,8 +48,5 @@ namespace RepuestosServicio.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
         public virtual ICollection<Venta_Servicio> Venta_Servicio { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<Moto> Moto { get; set; }
     }
 }

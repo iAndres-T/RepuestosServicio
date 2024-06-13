@@ -9,15 +9,16 @@
 
 namespace RepuestosServicio.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+    using Newtonsoft.Json;
+
     public partial class Empleado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Empleado()
         {
+            this.Usuario = new HashSet<Usuario>();
             this.Servicio = new HashSet<Servicio>();
             this.Venta_Repuesto = new HashSet<Venta_Repuesto>();
         }
@@ -37,6 +38,9 @@ namespace RepuestosServicio.Models
 
         [JsonIgnore]
         public virtual Cargo Cargo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
+        public virtual ICollection<Usuario> Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
         public virtual ICollection<Servicio> Servicio { get; set; }
